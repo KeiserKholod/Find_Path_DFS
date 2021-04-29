@@ -38,7 +38,8 @@ def find_path_with_dfs(maze, first_point, last_point, rows_count, columns_count)
     prev_points[str(first_point)] = current_point
     while len(visited_points) != 0:
         current_point = visited_points.pop()
-        
+        if str(current_point) == str(last_point):
+            return get_path_from_chain(prev_points, first_point, last_point), "Y"
         
         left_y = current_point.y - 1
         right_y = current_point.y + 1
